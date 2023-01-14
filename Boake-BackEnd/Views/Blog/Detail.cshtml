@@ -1,0 +1,249 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--====== Breadcrumb-Area Start ======-->
+
+<section class="breadcrumb-area py-5 py-sm-0">
+    <div class=" bg-shade text-center py-4">
+        <a href="index.html" class="  text-decoration-none text-white work-sans hover2 t-5">HOME </a>
+        <span class=" text-white">/</span>
+        <span class=" text-white work-sans text-uppercase">Significant reading has info</span>
+    </div>
+</section>
+
+<!--====== Breadcrumb-Area End ======-->
+<!--====== Blog-Area Start ======-->
+<div class="blog-area py-5">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-9">
+                <div class="blog-image">
+                    <img src="~/assets/img/blog/@Model.ImageUrl" class="w-100" alt="">
+                </div>
+                <div class="blog-title pt-4">
+                    <h3 class="geometric ls-1 text-white">Significant reading has info</h3>
+                </div>
+                <div class="blog-date pt-2">
+                    <ul class="list-unstyled ">
+                        <li class="d-inline-block text-grey">04 March, 2022</li>
+                        <li class="d-inline-block text-grey">\</li>
+                        <li class="d-inline-block text-grey">HasTech Shopify Team</li>
+                    </ul>
+                </div>
+                <div class="blog-description pt-3">
+                    <p class="work-sans text-white">The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light is always at a premium, but one never wants to feel high, dry, and seriously unstylish with all of the possible opportunities to pose for that most modern of vacation souvenirs, the fashionable Instagram.</p>
+                    <p class="work-sans text-white">The fashion set stayed true to their roots this week, whether that be swirling around the interior of a river boat in floor-length Giambattista Valli, à la Bianca Brandolini D’Adda, locally leaning against the scenery in innately comfortable summer classics in Positano, as Lisa Love did, or heading for the beach in Louis Vuitton resort denim hot pants and monogrammed Speedy in tow, as Marie-Amélie Sauvé did (oh, the access!).</p>
+                    <p class="work-sans text-white">Natasha Poly took in the ocean breeze in Formentera in a voluminous caftan, while Caroline Trentini’s white tee, Vuitton skirt, and Stan Smiths in Sao Paulo were a decidedly more city-friendly take on early August style (and will certainly transition more easily into fall). And while we treasure these lazy, late summer days, fall—and its sartorial demands—is just around the corner: For inspiration, look no further than little North West’s latest wardrobe addition, a clutch of pint-sized Balmain blazers that will have the tot segueing into the season sans problème.</p>
+                </div>
+                <div class="tag-share py-3 d-sm-flex justify-content-between align-items-center">
+                    <div class="dec-tag">
+                        <ul class="list-unstyled">
+                            <li class="text-white work-sans">
+                                <a href="" class="text-decoration-none text-white hover2 t-5">Book</a>,
+                                <a href="" class="text-decoration-none text-white hover2 t-5">Peot</a>,
+                                <a href="" class="text-decoration-none text-white hover2 t-5">Steel</a>,
+                                <a href="" class="text-decoration-none text-white hover2 t-5">Style</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="blog-share">
+                        <span class="text-white">Share:</span>
+                        <div class="share-social d-inline-block ps-3">
+                            <ul class="social-links list-unstyled">
+                                <li class="d-inline-block">
+                                    <a href="//www.facebook.com/sharer.php?u=https://noraure-5.myshopify.com/blogs/news/significant-reading-has-info"
+                                       title="Follow us on Facebook" class="text-decoration-none text-grey2 hover2 t-5 ps-3 fs-3" target="_blank">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block">
+                                    <a href="//twitter.com/share?text=Significant%20reading%20has%20info&amp;url=https://noraure-5.myshopify.com/blogs/news/significant-reading-has-info;source=webclient"
+                                       title="Follow us on Twitter" class="text-decoration-none text-grey2 hover2 t-5 ps-3 fs-3" target="_blank">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block">
+                                    <a href="//pinterest.com/pin/create/button/?url=https://noraure-5.myshopify.com/blogs/news/significant-reading-has-info&amp;media=http://cdn.shopify.com/s/files/1/1288/2297/articles/blog_7_1024x1024.jpg?v=1646452858&amp;description=Significant%20reading%20has%20info"
+                                       title="Follow us on Pinterest" class="text-decoration-none text-grey2 hover2 t-5 ps-3 fs-3" target="_blank">
+                                        <i class="fa-brands fa-pinterest-p"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="blog-comment-wrapper my-5">
+                    <h4 class="blog-dec-title text-white mb-5 ">1 COMMENT</h4>
+                    <div class="single-comment-wrapper d-sm-flex mt-35">
+                        <div class="blog-comment-img w-50 ">
+                            <img src="https://www.gravatar.com/avatar/2676f1c31dc5e7a12b2668e361d0ac31?s=200" class="w-100">
+                        </div>
+                        <div class="blog-comment-content text-white ps-sm-4">
+                            <h4>Musa</h4>
+                            <span class="work-sans">July 16, 2022</span>
+                            <p></p>
+                            <p class="work-sans">
+                                The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light is always at
+                                a premium, but one never wants to feel high, dry, and seriously unstylish with all of the possible
+                                opportunities to pose for that most modern of vacation souvenirs, the fashionable Instagram.
+                            </p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-reply-wrapper mt-50">
+                    <h4 class="blog-dec-title text-white work-sans text-uppercase">Leave a comment</h4>
+                    <div class="row">
+                        <form method="post" asp-controller="blog" asp-action="addcomment">
+                        <div class="col-lg-6">
+                            <div class="leave-form border">
+                                <input type="text" class="work-sans w-100 bg-transparent text-white py-2 ps-3 border-0 " style="outline: none;" name="" value="" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="leave-form border mt-sm-0 mt-4">
+                                <input type="text" class="work-sans w-100 bg-transparent text-white py-2 ps-3 border-0 " style="outline: none;" name="" value="" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <div class="text-leave border">
+                                <textarea name="" id="" class="w-100 bg-transparent  text-white pt-2 pb-5 work-sans ps-3 border-0 " style="outline: none;" placeholder="Message"></textarea>
+                            </div>
+                            <input type="submit" class="bg-fusion text-white border-0 px-4 py-3 work-sans  fw-semibold mt-4 hover4 t-5" style="outline: none;" value="Post comment">
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mt-4 mt-sm-0">
+                <div class="sidebar-style">
+                    <div class="sidebar-widget">
+                        <h4 class="text-white geometric ls-1">Search</h4>
+                        <div class="border mt-4 d-flex align-items-center justify-content-between py-2 w-100">
+                            <input class="bg-transparent text-white ps-3 border-0 work-sans" style="outline: none;" type="search" placeholder="Search our store" name="" id="">
+                            <button type="submit" class="bg-transparent border-0" style="outline: none;">
+                                <i class="fa-solid fa-magnifying-glass fs-5 text-white px-3 border-start hover2 t-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-5">
+                        <h4 class="geometric ls-1 text-white">Archive</h4>
+                        <h5 class="text-white pt-3 pb-2">March 2022</h5>
+                        <ul class="archive-sidebar list-unstyled">
+                            <li>
+                                <a href="" class="text-decoration-none text-white work-sans hover2 t-5" title="">>  Significant reading has info</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="text-decoration-none text-white work-sans hover2 t-5" title="">>  Activities Book International</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="text-decoration-none text-white work-sans hover2 t-5" title="">>  International activities of the book</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="text-decoration-none text-white work-sans hover2 t-5" title="">>  Significant info number of benefits</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="text-decoration-none text-white work-sans hover2 t-5" title="">>  Nullam at tellus vehicula</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget my-5">
+                        <h4 class="geometric ls-1 text-white">Recent Post</h4>
+                        <div class="single-sidebar-blog mt-4">
+                            <div class="sidebar-blog-img">
+                                <a href="">
+                                    <img src="assets/img/post/post1.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sidebar-blog-content text-white ms-4">
+                                <span class="text-uppercase geometric ls-1 ">Mar 04, 2022</span>
+                                <h6 class="pt-2">
+                                    <a href="" class="text-decoration-none text-white hover2 t-5 fw-normal geometric ls-1">Significant reading ha...</a>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="single-sidebar-blog mt-4">
+                            <div class="sidebar-blog-img">
+                                <a href="">
+                                    <img src="assets/img/post/post2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sidebar-blog-content text-white ms-4">
+                                <span class="text-uppercase geometric ls-1 ">Mar 04, 2022</span>
+                                <h6 class="pt-2">
+                                    <a href="" class="text-decoration-none text-white hover2 t-5 fw-normal geometric ls-1">Activities Book Intern...</a>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="single-sidebar-blog mt-4">
+                            <div class="sidebar-blog-img">
+                                <a href="">
+                                    <img src="assets/img/post/post3.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sidebar-blog-content text-white ms-4">
+                                <span class="text-uppercase geometric ls-1 ">Mar 04, 2022</span>
+                                <h6 class="pt-2">
+                                    <a href="" class="text-decoration-none text-white hover2 t-5 fw-normal geometric ls-1">International activiti...</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-5">
+                        <h4 class="geometric ls-1 text-white">Tags</h4>
+                        <div class="sidebar-widget-tag">
+                            <ul class="list-unstyled">
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">book</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">car</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">fashion</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">glass</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">laptop</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">men</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">peot</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">smoke</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">steel</a>
+                                </li>
+                                <li class="d-inline-block ">
+                                    <a href="" class=" text-decoration-none d-inline-block text-white border px-3 py-2 hover3 t-5">style</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-5">
+                        <h4 class="geometric ls-1 text-white">Custom Menu</h4>
+                        <ul class="list-unstyled pt-3">
+                            <li>
+                                <a href="search.html" class="text-decoration-none text-white work-sans hover2 t-5">Search</a>
+                            </li>
+                            <li class="mt-3">
+                                <a href="about.html" class="text-decoration-none text-white work-sans hover2 t-5">About us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--====== Blog-Area End ======-->

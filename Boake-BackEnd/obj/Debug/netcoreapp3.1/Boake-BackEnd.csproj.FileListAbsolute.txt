@@ -146,3 +146,8 @@ C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Boake-BackEnd.RazorTargetAssemblyInfo.cs
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Boake-BackEnd.Views.pdb
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs

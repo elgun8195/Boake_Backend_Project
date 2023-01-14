@@ -55,7 +55,7 @@
             <div class="container">
                 <div class="row align-items-center ">
                     <div class="col-lg-2">
-                        <a href="index.html">
+                        <a asp-controller="home" asp-action="index">
                             <img src="~/assets/img/logo.png" class="w-125" alt="">
                         </a>
                     </div>
@@ -169,8 +169,8 @@
                                                             </h4>
                                                         </div>
                                                         <div class="shopping-cart-btn btn-hover text-center">
-                                                            <a class="text-decoration-none text-white border hover3 t-5  py-2 d-block work-sans text-uppercase fw-semibold " href="checkout.html">Checkout</a>
-                                                            <a class="text-decoration-none text-white border hover3 t-5 py-2 d-block work-sans text-uppercase fw-semibold mt-3" href="cart.html">View Cart</a>
+                                                            <a class="text-decoration-none text-white border hover3 t-5  py-2 d-block work-sans text-uppercase fw-semibold " asp-controller="checkout" asp-action="index">Checkout</a>
+                                                            <a class="text-decoration-none text-white border hover3 t-5 py-2 d-block work-sans text-uppercase fw-semibold mt-3" asp-controller="cart" asp-action="index">View Cart</a>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -227,23 +227,20 @@
                     <div class="col-lg-9  ullist">
                         <ul class="list-unstyled m-0 p-0">
                             <li class="angle-shape ">
-                                <a href="index.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Home</a>
+                                <a asp-controller="home" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Home</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="blog.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Blog</a>
+                                <a asp-controller="blog" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Blog</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="shop.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Shop</a>
+                                <a asp-controller="shop" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Shop</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="contact.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Contact</a>
+                                <a asp-controller="contact" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Contact</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="about.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">About Us</a>
-                            </li>
-                            <li class="angle-shape ">
-                                <a href="" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Pages</a>
-                            </li>
+                                <a asp-controller="about" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">About Us</a>
+                            </li> 
                         </ul>
                     </div>
                     <div class="col-lg-3 text-end">
@@ -268,7 +265,7 @@
                 <div class="container">
                     <div class="header-area row align-items-center justify-content-between">
                         <div class="logo col-3">
-                            <a href="index.html">
+                            <a asp-controller="home" asp-action="index">
                                 <img src="~/assets/img/logo.png" alt="logo">
                             </a>
                         </div>
@@ -350,8 +347,8 @@
                                                     </h4>
                                                 </div>
                                                 <div class="shopping-cart-btn btn-hover text-center">
-                                                    <a class="text-decoration-none text-white border py-2 d-block work-sans text-uppercase fw-semibold " href="checkout.html">Checkout</a>
-                                                    <a class="text-decoration-none text-white border py-2 d-block work-sans text-uppercase fw-semibold mt-3" href="cart.html">View Cart</a>
+                                                    <a class="text-decoration-none text-white border py-2 d-block work-sans text-uppercase fw-semibold " asp-controller="checkout" asp-action="index">Checkout</a>
+                                                    <a class="text-decoration-none text-white border py-2 d-block work-sans text-uppercase fw-semibold mt-3" asp-controller="cart" asp-action="index">View Cart</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -374,19 +371,19 @@
                                     <div class="mobile-menu-wrap">
                                         <ul class="p-0 m-0 text-start">
                                             <li>
-                                                <a href="index.html" class="text-decoration-none work-sans  text-white   ">Home</a>
+                                                <a asp-controller="home" asp-action="index" class="text-decoration-none work-sans  text-white   ">Home</a>
                                             </li>
                                             <li class="pt-3">
-                                                <a href="blog.html" class="text-decoration-none work-sans   text-white ">Blog</a>
+                                                <a asp-controller="blog" asp-action="index" class="text-decoration-none work-sans   text-white ">Blog</a>
                                             </li>
                                             <li class="pt-3">
-                                                <a href="shop.html" class="text-decoration-none work-sans   text-white ">Shop</a>
+                                                <a asp-controller="shop" asp-action="index" class="text-decoration-none work-sans   text-white ">Shop</a>
                                             </li>
                                             <li class="pt-3">
-                                                <a href="contact.html" class="text-decoration-none work-sans   text-white ">Contact</a>
+                                                <a asp-controller="contact" asp-action="index" class="text-decoration-none work-sans   text-white ">Contact</a>
                                             </li>
                                             <li class="pt-3">
-                                                <a href="about.html" class="text-decoration-none work-sans   text-white ">About Us</a>
+                                                <a asp-controller="about" asp-action="index" class="text-decoration-none work-sans   text-white ">About Us</a>
                                             </li>
                                             <li class="pt-3">
                                                 <a href="" class="text-decoration-none work-sans   text-white ">Pages</a>
@@ -430,26 +427,26 @@
             <div class="container">
                 <div class="row align-items-center ">
                     <div class="col-lg-2">
-                        <a href="index.html">
+                        <a asp-controller="home" asp-action="index">
                             <img src="~/assets/img/logo.png" class="w-125" alt="">
                         </a>
                     </div>
                     <div class="col-lg-8  ullist">
                         <ul class="list-unstyled m-0 p-0">
                             <li class="angle-shape ">
-                                <a href="index.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Home</a>
+                                <a asp-controller="home" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Home</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="blog.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Blog</a>
+                                <a asp-controller="blog" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Blog</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="shop.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Shop</a>
+                                <a asp-controller="shop" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Shop</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="contact.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Contact</a>
+                                <a asp-controller="contact" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Contact</a>
                             </li>
                             <li class="angle-shape ">
-                                <a href="about.html" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">About Us</a>
+                                <a asp-controller="about" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">About Us</a>
                             </li>
                             <li class="angle-shape ">
                                 <a href="" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Pages</a>
@@ -560,8 +557,8 @@
                                                             </h4>
                                                         </div>
                                                         <div class="shopping-cart-btn btn-hover text-center">
-                                                            <a class="text-decoration-none text-white border hover3 t-5  py-2 d-block work-sans text-uppercase fw-semibold " href="checkout.html">Checkout</a>
-                                                            <a class="text-decoration-none text-white border hover3 t-5 py-2 d-block work-sans text-uppercase fw-semibold mt-3" href="cart.html">View Cart</a>
+                                                            <a class="text-decoration-none text-white border hover3 t-5  py-2 d-block work-sans text-uppercase fw-semibold " asp-controller="checkout" asp-action="index">Checkout</a>
+                                                            <a class="text-decoration-none text-white border hover3 t-5 py-2 d-block work-sans text-uppercase fw-semibold mt-3" asp-controller="cart" asp-action="index">View Cart</a>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -628,7 +625,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-12">
-                        <a href="index.html">
+                        <a asp-controller="home" asp-action="index">
                             <img src="~/assets/img/footer-logo.png" alt="">
                         </a>
                         <div class="subscribe-style pt-3 pb-sm-5 pb-3">
@@ -660,7 +657,7 @@
                             <div class="footer-list pt-4">
                                 <ul type="circle" class="text-white">
                                     <li><a href="account.html" class=" text-decoration-none text-white hover2 t-5 work-sans">My account</a></li>
-                                    <li class="pt-3"><a href="about.html" class=" text-decoration-none text-white hover2 t-5 work-sans">About us</a></li>
+                                    <li class="pt-3"><a asp-controller="about" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">About us</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Wish List</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Returns</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Privacy Policy</a></li>
@@ -676,7 +673,7 @@
                             <div class="footer-list pt-4">
                                 <ul type="circle" class="text-white">
                                     <li><a href="account.html" class=" text-decoration-none text-white hover2 t-5 work-sans">New collection</a></li>
-                                    <li class="pt-3"><a href="about.html" class=" text-decoration-none text-white hover2 t-5 work-sans">Manufacturers</a></li>
+                                    <li class="pt-3"><a asp-controller="about" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">Manufacturers</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">New Products</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Suppliers</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Delivery & returns</a></li>
@@ -692,7 +689,7 @@
                             <div class="footer-list pt-4">
                                 <ul type="circle" class="text-white">
                                     <li><a href="account.html" class=" text-decoration-none text-white hover2 t-5 work-sans">My account</a></li>
-                                    <li class="pt-3"><a href="about.html" class=" text-decoration-none text-white hover2 t-5 work-sans">About us</a></li>
+                                    <li class="pt-3"><a asp-controller="about" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">About us</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Wish List</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Returns</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Privacy Policy</a></li>
