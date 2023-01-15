@@ -206,12 +206,22 @@
                                         </ul>
                                         <h5 class="text-white py-4">Account</h5>
                                         <ul class="ps-0">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                
                                             <li>
-                                                <a href="account.html" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Login</a>
+                                                <a asp-controller="account" asp-action="index" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Account</a>
                                             </li>
+                                             <li>
+                                                <a asp-controller="account" asp-action="logout" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Log Out</a>
+                                            </li>
+                                            }else
+                                            {                                               
+                                            
                                             <li class=" py-3 ">
-                                                <a href="create-account.html" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Create Account</a>
+                                                <a asp-controller="account" asp-action="login" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Login</a>
                                             </li>
+                                            }
                                         </ul>
                                     </li>
                                 </ul>
@@ -385,9 +395,7 @@
                                             <li class="pt-3">
                                                 <a asp-controller="about" asp-action="index" class="text-decoration-none work-sans   text-white ">About Us</a>
                                             </li>
-                                            <li class="pt-3">
-                                                <a href="" class="text-decoration-none work-sans   text-white ">Pages</a>
-                                            </li>
+                                            
                                         </ul>
                                     </div>
                                     <div class="mobile-curr-lang-wrap">
@@ -401,8 +409,15 @@
                                                 </a>
                                                 <div class="lang-curr-dropdown account-dropdown-active" style="display: none;">
                                                     <ul class="list-unstyled text-start">
-                                                        <li class="pb-3"><a href="account.html" class="text-decoration-none text-white hover2 t-5">Login</a></li>
-                                                        <li><a href="create-account.html" class="text-decoration-none text-white hover2 t-5">Create Account</a></li>
+                                                        @if (User.Identity.IsAuthenticated)
+                                                        {
+                                                            
+                                                        <li class="pb-3"><a asp-controller="account" asp-action="index" class="text-decoration-none text-white hover2 t-5">Account</a></li>
+                                                        }else
+                                                        {
+                                                            
+                                                        <li><a asp-controller="account" asp-action="login"  class="text-decoration-none text-white hover2 t-5">Login</a></li>
+                                                        }
                                                     </ul>
                                                 </div>
                                             </div>
@@ -448,9 +463,7 @@
                             <li class="angle-shape ">
                                 <a asp-controller="about" asp-action="index" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">About Us</a>
                             </li>
-                            <li class="angle-shape ">
-                                <a href="" class="work-sans fw-semibold text-decoration-none ls-1 text-white hover2 t-5">Pages</a>
-                            </li>
+                            
                         </ul>
                     </div>
                     <div class="col-lg-2  d-flex align-items-center justify-content-evenly text-end">
@@ -594,11 +607,15 @@
                                         </ul>
                                         <h5 class="text-white py-4">Account</h5>
                                         <ul class="ps-0">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                
                                             <li>
-                                                <a href="account.html" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Login</a>
+                                                <a asp-controller="account" asp-action="index" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">MyAccount</a>
                                             </li>
+                                            }
                                             <li class=" py-3 ">
-                                                <a href="create-account.html" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Create Account</a>
+                                                <a asp-controller="account" asp-action="login" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Login</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -656,11 +673,16 @@
                             </div>
                             <div class="footer-list pt-4">
                                 <ul type="circle" class="text-white">
-                                    <li><a href="account.html" class=" text-decoration-none text-white hover2 t-5 work-sans">My account</a></li>
-                                    <li class="pt-3"><a asp-controller="about" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">About us</a></li>
-                                    <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Wish List</a></li>
-                                    <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Returns</a></li>
-                                    <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Privacy Policy</a></li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+
+                                        <li><a asp-controller="account" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">My account</a></li>
+                                    }else
+                                    {
+                                        <li><a asp-controller="account" asp-action="login" class=" text-decoration-none text-white hover2 t-5 work-sans">Login</a></li>
+                                        
+                                    }
+                                    <li class="pt-3"><a asp-controller="about" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">About us</a></li> 
                                 </ul>
                             </div>
                         </div>
@@ -672,7 +694,7 @@
                             </div>
                             <div class="footer-list pt-4">
                                 <ul type="circle" class="text-white">
-                                    <li><a href="account.html" class=" text-decoration-none text-white hover2 t-5 work-sans">New collection</a></li>
+                                    <li><a href="#" class=" text-decoration-none text-white hover2 t-5 work-sans">New collection</a></li>
                                     <li class="pt-3"><a asp-controller="about" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">Manufacturers</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">New Products</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Suppliers</a></li>
@@ -688,7 +710,11 @@
                             </div>
                             <div class="footer-list pt-4">
                                 <ul type="circle" class="text-white">
-                                    <li><a href="account.html" class=" text-decoration-none text-white hover2 t-5 work-sans">My account</a></li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        
+                                    <li><a asp-controller="account" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">My account</a></li>
+                                    }
                                     <li class="pt-3"><a asp-controller="about" asp-action="index" class=" text-decoration-none text-white hover2 t-5 work-sans">About us</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Wish List</a></li>
                                     <li class="pt-3"><a href="" class=" text-decoration-none text-white hover2 t-5 work-sans">Returns</a></li>
@@ -700,7 +726,7 @@
                 </div>
 
             </div>
-            <div class="footer-bottom mt-4 py-3">
+       @*     <div class="footer-bottom mt-4 py-3">
                 <div class="container ">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-12">
@@ -713,7 +739,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
         </div>
     </footer>
     <!--======================== Footer Part End ========================-->

@@ -16,6 +16,8 @@ namespace Boake_BackEnd.DAL
         public DbSet<Bio> Bio { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<BlogTag> BlogTags { get; set; }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<BookCategory> BookCategories { get; set; }
         public DbSet<BookTag> BookTags { get; set; }

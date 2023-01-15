@@ -8,10 +8,8 @@ namespace Boake_BackEnd.Models
     {
        
         [Required]
-        [StringLength(maximumLength: 200)]
-        public string Message { get; set; }
-        [Required]
-        public DateTime Date { get; set; }
+        [StringLength(maximumLength: 1000)]
+        public string Message { get; set; } 
         public bool IsAccess { get; set; }
         public int? BlogId { get; set; }
         public Blog Blog { get; set; } 

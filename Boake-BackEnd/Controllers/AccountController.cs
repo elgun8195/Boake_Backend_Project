@@ -66,13 +66,7 @@ namespace Boake_BackEnd.Controllers
 
 
             await _signInManager.SignInAsync(user, isPersistent: true);
-
-
-
-            await _userManager.AddToRoleAsync(user, "Member");
-
-
-          
+            await _userManager.AddToRoleAsync(user, "Member");         
 
             return RedirectToAction("Index", "Home");
         }

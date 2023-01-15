@@ -6,6 +6,7 @@ namespace Boake_BackEnd.Models
     {
         public string Name { get; set; }
         public List<BookTag> BookTags { get; set; }
+        public List<BlogTag> BlogTags { get; set; }
 
     }
 }

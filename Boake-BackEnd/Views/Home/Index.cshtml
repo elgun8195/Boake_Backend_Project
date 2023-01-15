@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HomeVM
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,111 +9,45 @@
 <!--====== Slider Part Start ======-->
 <div class="position-relative olo">
     <div class="slider">
-        <div class="py-5 py-sm-100" style="background-image: url(assets/img/slider/slider-bg.png); ">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-7 ">
-                        <h1 class=" text-white fs-70 fs-sm-32 animate__animated animate__fadeInLeft animate__slow">
-                            Get Your New<br>Book Collections
-                        </h1>
-                        <div class="slider-border"></div>
-                        <p class="animate__animated animate__fadeInLeft  animate__slow work-sans pb-4 fs-5 fs-sm-16 pt-3 text-white">
-                            There are many variations of passages of Lorem Ipsum available, but <br> the majority
-                            have suffered alteration in some formr.
-                        </p>
-                        <ul class="list-unstyled">
-                            <li class="d-inline-block animate__animated animate__fadeInLeft  animate__slower">
-                                <a href="#"
+        @foreach (var slider in Model.Sliders)
+        {
+
+            <div class="py-5 py-sm-100" style="background-image: url(assets/img/slider/slider-bg.png); ">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-7 ">
+                            <h1 class=" text-white fs-70 fs-sm-32 animate__animated animate__fadeInLeft animate__slow">
+                                @Html.Raw(slider.Header)
+                            </h1>
+                            <div class="slider-border"></div>
+                            <p class="animate__animated animate__fadeInLeft  animate__slow work-sans pb-4 fs-5 fs-sm-16 pt-3 text-white">
+                                @Html.Raw(slider.Title)
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="d-inline-block animate__animated animate__fadeInLeft  animate__slower">
+                                    <a href="#"
                                    class="bg-transparent animate__animated animate__fadeInLeft  animate__slow border br-50 px-5 py-3  text-decoration-none text-white hover3 t-5">
-                                    Explore
-                                    More <i class="fa-solid fa-cart-shopping ps-3"></i>
-                                </a>
-                            </li>
-                            <li class="d-inline-block ps-4  animate__animated animate__fadeInLeft  animate__slower">
-                                <a class=" hover2 ripple  text-decoration-none popup" data-toggle="modal"
+                                        Explore
+                                        More <i class="fa-solid fa-cart-shopping ps-3"></i>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block ps-4  animate__animated animate__fadeInLeft  animate__slower">
+                                    <a class=" hover2 ripple  text-decoration-none popup" data-toggle="modal"
                                    style="animation-delay: 2s" href="#myModal">
-                                    <i class="fas fa-play"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5 col-7 col-sm-7 ">
-                        <img src="~/assets/img/slider/slider1.png"
+                                        <i class="fas fa-play"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-5 col-7 col-sm-7 ">
+                            <img src="~/assets/img/slider/@slider.ImageUrl"
                              class="animate__animated animate__fadeInLeft  animate__slow w-100" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="py-5 py-sm-100" style="background-image: url(assets/img/slider/slider-bg.png); ">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-7 ">
-                        <h1 class=" text-white fs-70 fs-sm-32 animate__animated animate__fadeInLeft animate__slow">
-                            Get Your New<br>Book Collections
-                        </h1>
-                        <div class="slider-border "></div>
-                        <p class="animate__animated animate__fadeInLeft  animate__slow work-sans pb-4 fs-5 fs-sm-16 pt-3 text-white">
-                            There are many variations of passages of Lorem Ipsum available, but <br> the majority
-                            have suffered alteration in some formr.
-                        </p>
-                        <ul class="list-unstyled p-0 m-0">
-                            <li class="d-inline-block animate__animated animate__fadeInLeft  animate__slower">
-                                <a href="#"
-                                   class="bg-transparent animate__animated animate__fadeInLeft  animate__slow border br-50 px-5 py-3 text-decoration-none text-white hover3 t-5">
-                                    Explore
-                                    More <i class="fa-solid fa-cart-shopping ps-3"></i>
-                                </a>
-                            </li>
-                            <li class="d-inline-block ps-4  animate__animated animate__fadeInLeft  animate__slower">
-                                <a class=" hover2 ripple  text-decoration-none popup" data-toggle="modal"
-                                   style="animation-delay: 2s" href="#myModal">
-                                    <i class="fas fa-play"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5 col-7 col-sm-7 ">
-                        <img src="~/assets/img/slider/slider2.png"
-                             class="animate__animated animate__fadeInLeft  animate__slow w-100 " alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="py-5 py-sm-100" style="background-image: url(assets/img/slider/slider-bg.png); ">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-7 ">
-                        <h1 class=" text-white fs-70 fs-sm-32 animate__animated animate__fadeInLeft animate__slow">
-                            Get Your New<br>Book Collections
-                        </h1>
-                        <div class="slider-border"></div>
-                        <p class="animate__animated animate__fadeInLeft  animate__slow work-sans pb-4 fs-5 fs-sm-16 pt-3 text-white">
-                            There are many variations of passages of Lorem Ipsum available, but <br> the majority
-                            have suffered alteration in some formr.
-                        </p>
-                        <ul class="list-unstyled">
-                            <li class="d-inline-block animate__animated animate__fadeInLeft  animate__slower">
-                                <a href="#"
-                                   class="bg-transparent animate__animated animate__fadeInLeft  animate__slow border br-50 px-5 py-3  text-decoration-none text-white hover3 t-5">
-                                    Explore
-                                    More <i class="fa-solid fa-cart-shopping ps-3"></i>
-                                </a>
-                            </li>
-                            <li class="d-inline-block ps-4  animate__animated animate__fadeInLeft  animate__slower">
-                                <a class=" hover2 ripple  text-decoration-none popup" data-toggle="modal"
-                                   style="animation-delay: 2s" href="#myModal">
-                                    <i class="fas fa-play"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5 col-7 col-sm-7">
-                        <img src="~/assets/img/slider/slider3.png"
-                             class="animate__animated animate__fadeInLeft  animate__slow w-100" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
+        }
+
     </div>
     <div class="slick-slider-dots pas pas-sm"></div>
     <div class="prev prev-sm pa pa-sm t-5">
@@ -184,16 +119,19 @@
         <div class="">
             <div class="container position-relative olo1">
                 <div class="row featured-collections-slider">
+                    @foreach (var book in Model.Books)
+                   {
+                       
                     <div class="">
                         <div class="input-border me-4 position-relative ">
                             <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection1.png" class="w-100" alt="">
+                                <img src="~/assets/img/feature-collection/@book.ImageUrl" class="w-100" alt="">
                             </a>
                             <h4 class="title fs-6 fs-sm-12 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white  ps-3 work-sans hover2 t-5 geometric">11. Product with video</a>
+                                <a href="" class="text-decoration-none text-white  ps-3 work-sans hover2 t-5 geometric">@book.Name</a>
                             </h4>
                             <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$39.00">$39.00</span>
+                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$39.00">$@book.Price</span>
                             </span>
                             <span class="stars ps-3 pt-2 pb-3 d-block">
                                 <i class="fa-regular fa-star text-yellow"></i>
@@ -210,273 +148,15 @@
                                         </a>
                                     </li>
                                     <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
+                                        <a href="/basket/addbasket/@book.Id" class="text-decoration-none hover2 t-5 text-white">
                                             <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="">
-                        <div class="input-border position-relative me-4">
-                            <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection2.png" class="w-100" alt="">
-                            </a>
-                            <h4 class="title fs-6 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white ps-3 work-sans hover2 t-5 geometric">12. Unique content for each</a>
-                            </h4>
-                            <span class="discounted-price">
-                                <span class="money text-decoration-line-through ps-3  text-white" data-currency-usd="$111.00">$111.00</span>
-                            </span>
-                            <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$99.00">$99.00</span>
-                            </span>
-                            <span class="stars ps-3 pt-2 pb-3 d-block">
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                            </span>
-                            <div class="ht-product-action ">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-center pt-3">
-                                    <li class=" ">
-                                        <a href="#" class="text-decoration-none hover2 t-5 text-white" data-modal>
-                                            <i class="fas fa-search fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
-                                            <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sale">
-                                <span class=" bg-fusion px-2 d-block text-white d-flex justify-content-center align-items-center work-sans br-50 fs-sm-12">SALE</span>
-                                <span class="bg-fusion px-3  text-white d-flex justify-content-center align-items-center mt-sm-3 mt-2 fs-sm-12 work-sans br-50">-11%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="input-border position-relative me-4">
-                            <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection3.png" class="w-100" alt="">
-                            </a>
-                            <h4 class="title fs-6 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white ps-3 work-sans hover2 t-5 geometric">2. New badge product</a>
-                            </h4>
-                            <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$80.00">$80.00</span>
-                            </span>
-                            <span class="stars ps-3 pt-2 pb-3 d-block">
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                            </span>
-                            <div class="ht-product-action ">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-center pt-3">
-                                    <li class=" ">
-                                        <a href="#" class="text-decoration-none hover2 t-5 text-white" data-modal>
-                                            <i class="fas fa-search fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
-                                            <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="input-border position-relative me-4">
-                            <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection4.png" class="w-100" alt="">
-                            </a>
-                            <h4 class="title fs-6 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white ps-3 work-sans hover2 t-5 geometric">3. Variable product</a>
-                            </h4>
-                            <span class="discounted-price">
-                                <span class="money text-decoration-line-through ps-3  text-white" data-currency-usd="$85.00">$85.00</span>
-                            </span>
-                            <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$70.00">$70.00</span>
-                            </span>
-                            <span class="stars ps-3 pt-2 pb-3 d-block">
-                                <i class="fa-solid fa-star text-yellow"></i>
-                                <i class="fa-solid fa-star text-yellow"></i>
-                                <i class="fa-solid fa-star text-yellow"></i>
-                                <i class="fa-solid fa-star text-yellow"></i>
-                                <i class="fa-solid fa-star text-yellow"></i>
-                            </span>
-                            <div class="ht-product-action ">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-center pt-3">
-                                    <li class=" ">
-                                        <a href="#" class="text-decoration-none hover2 t-5 text-white" data-modal>
-                                            <i class="fas fa-search fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
-                                            <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sale">
-                                <span class=" bg-fusion px-2 d-block text-white d-flex justify-content-center align-items-center work-sans br-50 fs-sm-12">SALE</span>
-                                <span class="bg-fusion px-3  text-white d-flex justify-content-center align-items-center mt-sm-3 mt-2 fs-sm-12 work-sans br-50">-11%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="input-border position-relative me-4">
-                            <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection5.png" class="w-100" alt="">
-                            </a>
-                            <h4 class="title fs-6 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white ps-3 work-sans hover2 t-5 geometric">Demo product title</a>
-                            </h4>
-                            <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$80.00">$80.00</span>
-                            </span>
-                            <span class="stars ps-3 pt-2 pb-3 d-block">
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                            </span>
-                            <div class="ht-product-action ">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-center pt-3">
-                                    <li class=" ">
-                                        <a href="#" class="text-decoration-none hover2 t-5 text-white" data-modal>
-                                            <i class="fas fa-search fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
-                                            <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sale">
-                                <span class=" bg-fusion px-2 d-block text-white d-flex justify-content-center align-items-center work-sans br-50 fs-sm-12">SALE</span>
-                                <span class="bg-fusion px-3  text-white d-flex justify-content-center align-items-center mt-sm-3 mt-2 fs-sm-12 work-sans br-50">-11%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="input-border position-relative me-4">
-                            <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection6.png" class="w-100" alt="">
-                            </a>
-                            <h4 class="title fs-6 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white ps-3 work-sans hover2 t-5 geometric">Demo product title</a>
-                            </h4>
-                            <span class="discounted-price">
-                                <span class="money text-decoration-line-through ps-3  text-white" data-currency-usd="$85.00">$85.00</span>
-                            </span>
-                            <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$70.00">$70.00</span>
-                            </span>
-                            <span class="stars ps-3 pt-2 pb-3 d-block">
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                            </span>
-                            <div class="ht-product-action ">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-center pt-3">
-                                    <li class=" ">
-                                        <a href="#" class="text-decoration-none hover2 t-5 text-white" data-modal>
-                                            <i class="fas fa-search fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
-                                            <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="input-border position-relative me-4">
-                            <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection7.png" class="w-100" alt="">
-                            </a>
-                            <h4 class="title fs-6 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white ps-3 work-sans hover2 t-5 geometric">Demo product title</a>
-                            </h4>
-                            <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$50.00">$50.00</span>
-                            </span>
-                            <span class="stars ps-3 pt-2 pb-3 d-block">
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                            </span>
-                            <div class="ht-product-action ">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-center pt-3">
-                                    <li class=" ">
-                                        <a href="#" class="text-decoration-none hover2 t-5 text-white" data-modal>
-                                            <i class="fas fa-search fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
-                                            <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="input-border position-relative me-4">
-                            <a href="product-details.html">
-                                <img src="~/assets/img/feature-collection/featurecollection1.png" class="w-100" alt="">
-                            </a>
-                            <h4 class="title fs-6 fs-sm-12 ls-1">
-                                <a href="" class="text-decoration-none text-white ps-3 work-sans hover2 t-5 geometric">Demo product title</a>
-                            </h4>
-                            <span class="price">
-                                <span class="money text-fusion ps-3 fw-bold fs-4" data-currency-usd="$29.00">$29.00</span>
-                            </span>
-                            <span class="stars ps-3 pt-2 pb-3 d-block">
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                                <i class="fa-regular fa-star text-yellow"></i>
-                            </span>
-                            <div class="ht-product-action ">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-center pt-3">
-                                    <li class=" ">
-                                        <a href="#" class="text-decoration-none hover2 t-5 text-white" data-modal>
-                                            <i class="fas fa-search fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="ps-4 ">
-                                        <a class="text-decoration-none hover2 t-5 text-white">
-                                            <i class="las la-shopping-bag fs-4" style="cursor: pointer;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
+                   }
                 </div>
                 <div class="prev-collection hover3 t-5 pa-col ">
                     <i class="fa-solid fa-chevron-left  work-sans" style="cursor: pointer;"></i>
@@ -2560,40 +2240,41 @@
         </div>
         <div class="">
             <div class="latest-blog-slider row">
+                @foreach (var blog in Model.Blogs)
+               {
+                   
                 <div class="">
                     <div class="blog-wrap mx-3 ms-sm-4 border py-2 px-2 text-center">
                         <div class="blog-img ">
-                            <a href="blog-details.html">
-                                <img src="~/assets/img/blog/blog1.png" alt="Significant reading has info" class="">
+                            <a href="/blog/detail/@blog.Id">
+                                <img src="~/assets/img/blog/@blog.ImageUrl" alt="Significant reading has info" class="">
                             </a>
                         </div>
                         <div class="blog-content px-2 text-center">
                             <h5 class="py-3 border-bottom">
-                                <a href="blog-details.html"
+                                <a href="/blog/detail/@blog.Id"
                                    class="text-decoration-none text-white hover2 t-5 geometric ls-1 ">
-                                    Significant reading has
-                                    info
+                                   @blog.Title
                                 </a>
                             </h5>
                             <div class="blog-meta pt-2">
                                 <ul class="list-unstyled">
                                     <li class="d-inline-block">
-                                        <a class="text-decoration-none text-grey hover2 t-5">04 March, 2022</a>
+                                        <a class="text-decoration-none text-grey hover2 t-5">@blog.CreatedTime.ToString("dd MMMM, yyyy")</a>
                                     </li>
                                     <li class="d-inline-block">
                                         <span class="text-grey ">\</span>
                                     </li>
                                     <li class="d-inline-block">
-                                        <a href="" class="text-decoration-none hover2 t-5 text-grey"> 1 comment</a>
+                                        <a href="" class="text-decoration-none hover2 t-5 text-grey"> @blog.Comments.Count() comment</a>
                                     </li>
                                 </ul>
                             </div>
                             <p class="text-white work-sans pb-3 ">
-                                The summer holidays are wonderful. Dressing for them can be
-                                significantly less so: Packing light...
+                                @blog.Description.Substring(0,96)...
                             </p>
                             <div class="read-more-btn pb-4">
-                                <a href="blog-details.html"
+                                <a href="/blog/detail/@blog.Id" href="/blog/detail/@blog.Id"
                                    class="text-decoration-none text-white px-4 py-3 border work-sans hover3 t-5 br-50">
                                     Read
                                     More
@@ -2601,212 +2282,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="">
-                    <div class="blog-wrap mx-3 ms-sm-4 border py-2 px-2 text-center">
-                        <div class="blog-img ">
-                            <a href="blog-details.html">
-                                <img src="~/assets/img/blog/blog2.png" alt="Significant reading has info" class="">
-                            </a>
-                        </div>
-
-                        <div class="blog-content px-2 text-center">
-                            <h5 class="py-3 border-bottom">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white hover2 t-5 geometric ls-1 ">
-                                    Activities Book
-                                    International
-                                </a>
-                            </h5>
-                            <div class="blog-meta pt-2">
-                                <ul class="list-unstyled">
-                                    <li class="d-inline-block">
-                                        <a class="text-decoration-none text-grey hover2 t-5">04 March, 2022</a>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <span class="text-grey ">\</span>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <a href="" class="text-decoration-none hover2 t-5 text-grey"> 0 comment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="text-white work-sans pb-3 ">
-                                The summer holidays are wonderful. Dressing for them can be
-                                significantly less so: Packing light...
-                            </p>
-                            <div class="read-more-btn pb-4">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white px-4 py-3 border work-sans hover3 t-5 br-50">
-                                    Read
-                                    More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="blog-wrap mx-3 ms-sm-4 border py-2 px-2 text-center">
-                        <div class="blog-img ">
-                            <a href="blog-details.html">
-                                <img src="~/assets/img/blog/blog3.png" alt="Significant reading has info" class="">
-                            </a>
-                        </div>
-                        <div class="blog-content px-2 text-center">
-                            <h5 class="py-3 border-bottom">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white hover2 t-5 geometric ls-1 ">
-                                    International activities of
-                                    the book
-                                </a>
-                            </h5>
-                            <div class="blog-meta pt-2">
-                                <ul class="list-unstyled">
-                                    <li class="d-inline-block">
-                                        <a class="text-decoration-none text-grey hover2 t-5">04 March, 2022</a>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <span class="text-grey ">\</span>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <a href="" class="text-decoration-none hover2 t-5 text-grey"> 0 comment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="text-white work-sans pb-3 ">
-                                The summer holidays are wonderful. Dressing for them can be
-                                significantly less so: Packing light...
-                            </p>
-                            <div class="read-more-btn pb-4">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white px-4 py-3 border work-sans hover3 t-5 br-50">
-                                    Read
-                                    More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="blog-wrap mx-3 ms-sm-4 border py-2 px-2 text-center">
-                        <div class="blog-img ">
-                            <a href="blog-details.html">
-                                <img src="~/assets/img/blog/blog4.png" alt="Significant reading has info" class="">
-                            </a>
-                        </div>
-                        <div class="blog-content px-2 text-center">
-                            <h5 class="py-3 border-bottom">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white hover2 t-5 geometric ls-1 ">
-                                    Significant info number of
-                                    benefits
-                                </a>
-                            </h5>
-                            <div class="blog-meta pt-2">
-                                <ul class="list-unstyled">
-                                    <li class="d-inline-block">
-                                        <a class="text-decoration-none text-grey hover2 t-5">04 March, 2022</a>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <span class="text-grey ">\</span>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <a href="" class="text-decoration-none hover2 t-5 text-grey"> 0 comment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="text-white work-sans pb-3 ">
-                                The summer holidays are wonderful. Dressing for them can be
-                                significantly less so: Packing light...
-                            </p>
-                            <div class="read-more-btn pb-4">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white px-4 py-3 border work-sans hover3 t-5 br-50">
-                                    Read
-                                    More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="blog-wrap mx-3 ms-sm-4 border py-2 px-2 text-center">
-                        <div class="blog-img ">
-                            <a href="blog-details.html">
-                                <img src="~/assets/img/blog/blog5.png" alt="Significant reading has info" class="">
-                            </a>
-                        </div>
-                        <div class="blog-content px-2 text-center">
-                            <h5 class="py-3 border-bottom">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white hover2 t-5 geometric ls-1 ">Nullam at tellus vehicula</a>
-                            </h5>
-                            <div class="blog-meta pt-2">
-                                <ul class="list-unstyled">
-                                    <li class="d-inline-block">
-                                        <a class="text-decoration-none text-grey hover2 t-5">02 March, 2022</a>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <span class="text-grey ">\</span>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <a href="" class="text-decoration-none hover2 t-5 text-grey"> 1 comment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="text-white work-sans pb-3 ">
-                                The summer holidays are wonderful. Dressing for them can be
-                                significantly less so: Packing light...
-                            </p>
-                            <div class="read-more-btn pb-4">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white px-4 py-3 border work-sans hover3 t-5 br-50">
-                                    Read
-                                    More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="blog-wrap mx-3 ms-sm-4 border py-2 px-2 text-center">
-                        <div class="blog-img ">
-                            <a href="blog-details.html">
-                                <img src="~/assets/img/blog/blog6.png" alt="Significant reading has info" class="">
-                            </a>
-                        </div>
-                        <div class="blog-content px-2 text-center">
-                            <h5 class="py-3 border-bottom">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white hover2 t-5 geometric ls-1 ">Glance Into the Future</a>
-                            </h5>
-                            <div class="blog-meta pt-2">
-                                <ul class="list-unstyled">
-                                    <li class="d-inline-block">
-                                        <a class="text-decoration-none text-grey hover2 t-5">02 March, 2022</a>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <span class="text-grey ">\</span>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <a href="" class="text-decoration-none hover2 t-5 text-grey"> 0 comment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="text-white work-sans pb-3 ">
-                                The summer holidays are wonderful. Dressing for them can be
-                                significantly less so: Packing light...
-                            </p>
-                            <div class="read-more-btn pb-4">
-                                <a href="blog-details.html"
-                                   class="text-decoration-none text-white px-4 py-3 border work-sans hover3 t-5 br-50">
-                                    Read
-                                    More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> 
+               }
             </div>
         </div>
     </div>
