@@ -4,14 +4,16 @@ using Boake_BackEnd.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Boake_BackEnd.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230114184606_updateappuser")]
+    partial class updateappuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,10 +73,7 @@ namespace Boake_BackEnd.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Firstname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Lastname")
+                    b.Property<string>("Fullname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -82,6 +81,9 @@ namespace Boake_BackEnd.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(256)")
@@ -101,6 +103,9 @@ namespace Boake_BackEnd.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -855,7 +860,7 @@ namespace Boake_BackEnd.Migrations
             modelBuilder.Entity("Boake_BackEnd.Models.BasketItem", b =>
                 {
                     b.HasOne("Boake_BackEnd.Models.AppUser", "AppUser")
-                        .WithMany("BasketItems")
+                        .WithMany()
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("Boake_BackEnd.Models.Book", "Book")
@@ -898,7 +903,7 @@ namespace Boake_BackEnd.Migrations
             modelBuilder.Entity("Boake_BackEnd.Models.Comment", b =>
                 {
                     b.HasOne("Boake_BackEnd.Models.AppUser", "AppUser")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("Boake_BackEnd.Models.Blog", "Blog")

@@ -151,3 +151,5 @@ C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs

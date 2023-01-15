@@ -66,9 +66,9 @@ namespace Boake_BackEnd
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                     "areas",
-                     "{area:exists}/{controller=product}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //     "areas",
+                //     "{area:exists}/{controller=product}/{action=Index}/{id?}");
                 endpoints.MapDefaultControllerRoute();
 
             });
