@@ -158,3 +158,8 @@ C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Books.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SearchPartial.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shop\FromTo.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Hos\Index.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Blogtag.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Detail.cshtml.g.cs

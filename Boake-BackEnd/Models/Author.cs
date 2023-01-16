@@ -2,10 +2,10 @@
 
 namespace Boake_BackEnd.Models
 {
-    public class ProductType:BaseEntity
+    public class Author:BaseEntity
     {
         public string Name { get; set; }
-        public List<BookType> BookTypes { get; set; }
+        public List<AuthorBook> AuthorBooks { get; set; }
 
     }
 }

@@ -15,6 +15,19 @@ $(document).ready(function () {
         }
     });
 
+    //Search
+
+    $(document).on("keyup", "#search-input", function () {
+        let inputVal = $(this).val().trim();
+        $("#search-results li").slice(0).remove();
+        $.ajax({
+            method: "get",
+            url: "shop/Search?search=" + inputVal,
+            success: function (res) {
+                $("#search-results").append(res);
+            }
+        })
+    })
 
     // Scroll To Top 
     var scrollTop = $(".scrollToTop");
@@ -741,7 +754,7 @@ function closeModal() {
 }
 
 
-modalCloseBtn.addEventListener('click', closeModal);
+//modalCloseBtn.addEventListener('click', closeModal);
 
 modal.addEventListener('click', (e) => {
     if (e.target == modal) {

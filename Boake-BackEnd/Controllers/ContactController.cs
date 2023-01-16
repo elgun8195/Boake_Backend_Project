@@ -34,6 +34,7 @@ namespace Boake_BackEnd.Controllers
                 Name = msg.Name,
                 Subject = msg.Subject,
                 Email = msg.Email,
+                Message=msg.Message,
                 Date = DateTime.Now,
             };
 

@@ -23,6 +23,8 @@ namespace Boake_BackEnd.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewBag.Tags = _context.Tags.Where(b => !b.IsDeleted).ToList();
+
             List<Blog> blogs =await _context.Blog.Include(b=>b.Comments).Where(b=>!b.IsDeleted).ToListAsync();
             return View(blogs);
         }
@@ -41,13 +43,18 @@ namespace Boake_BackEnd.Controllers
             Blog blog =await _context.Blog.Include(b=>b.BlogTags).ThenInclude(b=>b.Tag).FirstOrDefaultAsync(b => !b.IsDeleted &&b.Id==id);
             return View(blog);
         }
-
+        public IActionResult Blogtag(int id)
+        {
+            List<Blog> blogs = _context.Blog.Include(b => b.Comments).Where(c =>!c.IsDeleted && c.BlogTags.Any(bt => bt.TagId == id)).ToList();
+            ViewBag.Tags = _context.Tags.Where(b => !b.IsDeleted).ToList();
+            return View(blogs);
+        }
         [AutoValidateAntiforgeryToken]
         [HttpPost]
         public async Task<IActionResult> AddComment(Comment comment)
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (user == null) { return NotFound(); }
+            if (user == null) { return RedirectToAction("login","account"); }
             if (!ModelState.IsValid) return RedirectToAction("Detail", "Blog", new { id = comment.BlogId });
             if (!_context.Blog.Any(f => f.Id == comment.BlogId)) return NotFound();
             Comment newComment = new Comment
@@ -66,7 +73,7 @@ namespace Boake_BackEnd.Controllers
         public async Task<IActionResult> DeleteComment(int id)
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (user == null) { return NotFound(); }
+            if (user == null) { return RedirectToAction("login", "account"); }
 
             if (!ModelState.IsValid) return RedirectToAction("Index", "Blog");
             if (!_context.Comments.Any(c => c.Id == id && c.IsAccess == true && c.AppUserId == user.Id)) return NotFound();

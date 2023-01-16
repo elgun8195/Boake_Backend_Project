@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Book>
+﻿ 
+@model IEnumerable<Book>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -56,13 +57,7 @@
 
                             {
 
-                                <div class="col-lg-4 col-6 pt-4 item-m" data-id="@foreach (var author in item.AuthorBooks)
-                                       {
-                                           @(author.Author.Name )
-                                       }" data-type="@foreach (var type in item.BookTypes)
-                                       {
-                                           @(type.ProductType.Name )
-                                       }">
+                                <div class="col-lg-4 col-6 pt-4">
                                     <div class="input-border me-4 position-relative ">
                                         <a href="/shop/detail/@item.Id">
                                             <img src="~/assets/img/feature-collection/@item.ImageUrl" class="w-100" alt="">
@@ -103,13 +98,7 @@
                         <div class="row ">
                             @foreach (var item in Model)
                             {
-                                <div class="col-lg-12 col-12 item-o" data-ids="@foreach (var author in item.AuthorBooks)
-                                       {
-                                           @(author.Author.Name )
-                                       }" data-types="@foreach (var type in item.BookTypes)
-                                       {
-                                           @(type.ProductType.Name )
-                                       }">
+                                <div class="col-lg-12 col-12">
                                     <div class="border  mt-4 px-4 py-5">
                                         <div class="row">
                                             <div class="col-lg-4 position-relative">
@@ -171,26 +160,43 @@
                     </div>
                     <div class="pagination pt-5 ">
                         <ul class="list-unstyled d-flex ">
-                            <li class=" d-inline-block @(ViewBag.Currentpage == 1 ? "disabled" : "")">
+                            <li class=" d-inline-block">
                                 <a asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)" style="pointer-events:@(ViewBag.Currentpage == 1 ? "none" : "");" class=" hover3 t-5 br-100 pagi text-decoration-none bg-white">
                                     <i class="fa-solid fa-angle-left "></i>
                                 </a>
                             </li>
-                            @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                            @for (int i = 1; i < ViewBag.TotalPage; i++)
                             {
-                                <li class=" d-inline-block">
-                                    <a style="pointer-events:@(ViewBag.CurrentPage == i ? "none" : "");" asp-controller="shop" asp-action="index" asp-route-page="@i" class="ms-3 hover3 t-5 br-100 pagi pagi-active text-decoration-none bg-white">
-                                        <span>@i</span>
-                                    </a>
-                                </li>
+                                @*<li class=" d-inline-block">
+                            <a style="pointer-events:@(ViewBag.CurrentPage == i ? "none" : "");" asp-controller="shop" asp-action="index" asp-route-page="@i" class="ms-3 hover3 t-5 br-100 pagi pagi-active text-decoration-none bg-white">
+                            <span>@i</span>
+                            </a>
+                            </li>*@
+                                <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events: @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@i">@i</a></li>
                             }
-                            <li class=" d-inline-block @(ViewBag.CurrentPage == ViewBag.TotalPage ? "d-none" : "")">
-                                <a asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)" class="@(ViewBag.CurrentPage == ViewBag.TotalPage ? "disabled" : "") hover3 ms-3 t-5 br-100 pagi text-decoration-none bg-white">
+                            <li class=" d-inline-block">
+                                <a asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)" class=" hover3 ms-3 t-5 br-100 pagi text-decoration-none bg-white">
                                     <i class="fa-solid fa-angle-right "></i>
                                 </a>
                             </li>
                         </ul>
-                    </div> 
+                    </div>
+                    <div class="pagination pt-5 ">
+                        <ul class="list-unstyled d-flex ">
+                            <li class="page-item @(ViewBag.Currentpage == 1 ? "disabled" : "")">
+                                <a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)">Previous</a>
+                            </li>
+
+                            @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                            {
+                                <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events:         @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@i">@i</a></li>
+                            }
+
+                            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPage ? "disabled" : "")">
+                                <a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)">Next</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3">
@@ -223,19 +229,56 @@
                     <button class="accordion text-white bg-transparent border-bottom work-sans fw-semibold">Product type</button>
                     <div class="panel text-white ">
                         <div class="sidebar-body widget-collapse-hide my-4  ">
+                            <div class="filter-value-counter">
+                                <span class="filter-value-selected">0 selected</span>
+                            </div>
                             <div class="checkbox-container categories-list  ">
                                 <ul class="checkbox-container categories-list list-unstyled ">
-                                    @foreach (var item in ViewBag.Types)
-                                    {
-                                        <li>
-                                            <div class="custom-control custom-checkbox ">
-
-                                                <label for="Filter-product-type-1" class="custom-control-label type-tab">
-                                                    <a class="custom-control-label" href="@item.Name">@item.Name</a> <span class="count_value"> (@item.BookTypes.Count)</span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                    }
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.product_type" value="Type 1" id="Filter-product-type-1"
+                                                   class="custom-control-input">
+                                            <label for="Filter-product-type-1" class="custom-control-label">
+                                                Type 1 <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.product_type" value="Type 2" id="Filter-product-type-2"
+                                                   class="custom-control-input">
+                                            <label for="Filter-product-type-2" class="custom-control-label">
+                                                Type 2 <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.product_type" value="Type 3" id="Filter-product-type-3"
+                                                   class="custom-control-input">
+                                            <label for="Filter-product-type-3" class="custom-control-label">
+                                                Type 3 <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.product_type" value="Type 4" id="Filter-product-type-4"
+                                                   class="custom-control-input">
+                                            <label for="Filter-product-type-4" class="custom-control-label">
+                                                Type 4 <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.product_type" value="Type 5" id="Filter-product-type-5"
+                                                   class="custom-control-input">
+                                            <label for="Filter-product-type-5" class="custom-control-label">
+                                                Type 5 <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -246,21 +289,51 @@
                     <button class="accordion text-white bg-transparent border-bottom work-sans fw-semibold">Brand</button>
                     <div class="panel text-white ">
                         <div class="sidebar-body widget-collapse-hide my-4  ">
+                            <div class="filter-value-counter">
+                                <span class="filter-value-selected">0 selected</span>
+                            </div>
                             <div class="checkbox-container categories-list  ">
                                 <ul class="checkbox-container categories-list list-unstyled ">
-                                    @foreach (var item in ViewBag.Authors)
-                                    {
-                                        <li>
-                                            <div class="custom-control author-tab custom-checkbox ">
-                                                <a href="@item.Name" class="custom-control-label" style="text-decoration:none;">
-                                                    <label for="Filter-brand-vendor-1" class="custom-control-label">
-                                                        @item.Name
-                                                        <span class="count_value"> (@item.AuthorBooks.Count)</span>
-                                                    </label>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    }
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 1" id="Filter-brand-vendor-1"
+                                                   class="custom-control-input">
+                                            <label for="Filter-brand-vendor-1" class="custom-control-label">
+                                                Vendor 1
+                                                <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 2" id="Filter-brand-vendor-2"
+                                                   class="custom-control-input">
+                                            <label for="Filter-brand-vendor-2" class="custom-control-label">
+                                                Vendor 2
+                                                <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 3" id="Filter-brand-vendor-3"
+                                                   class="custom-control-input">
+                                            <label for="Filter-brand-vendor-3" class="custom-control-label">
+                                                Vendor 3
+                                                <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 4" id="Filter-brand-vendor-4"
+                                                   class="custom-control-input">
+                                            <label for="Filter-brand-vendor-4" class="custom-control-label">
+                                                Vendor 4
+                                                <span class="count_value"> (3)</span>
+                                            </label>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -272,38 +345,7 @@
 </div>
 <!--====== Shop-Area End ======-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script>
-    $(".author-tab a").click(function (e) {
-        e.preventDefault();
 
-        var id = $(this).attr("href")
-
-        var items = document.querySelectorAll(".item-m")
-        items.forEach(item => {
-            item.style.display = "none"
-            var a = item.getAttribute("data-id")
-
-            if (a.includes(id)) {
-                item.style.display = "block"
-            }
-        })
-    });
-    $(".type-tab a").click(function (e) {
-        e.preventDefault();
-
-        var id = $(this).attr("href")
-
-        var items = document.querySelectorAll(".item-m")
-        items.forEach(item => {
-            item.style.display = "none"
-            var a = item.getAttribute("data-type")
-
-            if (a.includes(id)) {
-                item.style.display = "block"
-            }
-        })
-    });
-</script>
 <script>
     var option = document.querySelectorAll("#select option")
     var id = document.getElementById("getvalue").innerHTML
@@ -315,7 +357,7 @@
     }
     $(document).ready(function () {
 
-        $(document).on("change", "#select", function (e) {
+        $(document).on("click", "#fbtn", function (e) {
 
             var base = window.location.origin;
             var url = `${base}/shop?sortId=${$(this).val()}`
@@ -325,10 +367,26 @@
 
         //$(document).on("click", "#fbtn", function () {
         //    let from = $("#from-input").val().trim();
+        //    let to = $("#to-input").val().trim();
         //    var base = window.location.origin;
-        //    var url = `${base}/shop?sortId=${$(this).val()}`
+        //    var url = `${base}shop/fromto?from=${$from}&&to=${$to}`
         //    window.location.replace(url)
+        //    //$.ajax({
+        //    //method: "get",
+        //    //    url: `shop/fromto?from=${$from}&&to=${$to}`,
+        //    //success: function (res) {
+        //    //    console.log(res)
+        //    //}
         //})
     })
 
-</script> 
+</script>
+@*<script>
+    const btn=document.getElementById("fbtn");
+    const frominp=document.getElementById("from-input");
+    const toinp=document.getElementById("to-input");
+    btn.addEventListener("click",function(e){
+        e.preventDefault();
+        console.log(frominp.value)
+    })
+</script>*@

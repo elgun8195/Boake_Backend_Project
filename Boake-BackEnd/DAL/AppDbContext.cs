@@ -17,7 +17,8 @@ namespace Boake_BackEnd.DAL
         public DbSet<Book> Books { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<BlogTag> BlogTags { get; set; }
-
+        public DbSet<BookType> BookTypes { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<BookCategory> BookCategories { get; set; }
         public DbSet<BookTag> BookTags { get; set; }
@@ -33,7 +34,7 @@ namespace Boake_BackEnd.DAL
         public DbSet<About> Abouts { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }
-        //public DbSet<WishListItem> WishListItems { get; set; }
+        public DbSet<AuthorBook> AuthorBooks { get; set; }
         //public DbSet<Campaign> Campaigns { get; set; }
 
         //public DbSet<Subscribe> Subscribes { get; set; }
