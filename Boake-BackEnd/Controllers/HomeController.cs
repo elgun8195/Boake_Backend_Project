@@ -17,7 +17,7 @@ namespace Boake_BackEnd.Controllers
         public IActionResult Index()
         {
             HomeVM homeVM = new HomeVM();
-            homeVM.Books = _context.Books.Where(s => !s.IsDeleted).ToList();
+            homeVM.Books = _context.Books.Where(s => !s.IsDeleted&&s.IsSale).ToList();
 
             homeVM.Blogs = _context.Blog.Include(s=>s.Comments).Where(s => !s.IsDeleted).ToList();
             homeVM.Sliders = _context.Sliders.Where(s=>!s.IsDeleted).ToList(); 
