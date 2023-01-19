@@ -11,11 +11,16 @@ using System;
 using Boake_BackEnd.ViewModels;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 using System.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using Boake_BackEnd.DAL;
+using System.Linq;
 
 namespace Boake_BackEnd.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly AppDbContext _context;
         private UserManager<AppUser> _userManager;
         private SignInManager<AppUser> _signInManager;
         private RoleManager<IdentityRole> _roleManager;
@@ -25,16 +30,19 @@ namespace Boake_BackEnd.Controllers
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             RoleManager<IdentityRole> roleManager,
-            IWebHostEnvironment env)
+            IWebHostEnvironment env,
+            AppDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _env = env;
+            _context = context;
         }
         public IActionResult Index()
         {
-            return View();
+            List<Order> orders = _context.Order.ToList();
+            return View(orders); 
         }
         public IActionResult Register()
         {
@@ -144,8 +152,92 @@ namespace Boake_BackEnd.Controllers
                 }
             }
         }
- 
-       
- 
+
+
+
+        public async Task<IActionResult> VerifyEmail(string email, string token)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return BadRequest();
+            await _userManager.ConfirmEmailAsync(user, token);
+
+            await _signInManager.SignInAsync(user, true);
+             
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(AccountVM account)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(account.AppUser.Email);
+            if (user == null) return BadRequest();
+
+            string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            string link = Url.Action(nameof(ResetPassword), "Account", new { email = user.Email, token }, Request.Scheme, Request.Host.ToString());
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("nurlanshr@code.edu.az", "Boake");
+            mail.To.Add(new MailAddress(user.Email));
+
+            mail.Subject = "Reset Password";
+            mail.Body = $"<a href='{link}'>Please click here to reset your password</a>";
+            mail.IsBodyHtml = true;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+
+            smtp.Credentials = new NetworkCredential("nurlanshr@code.edu.az", "jjnpuvzgmtdtfrlz");
+            smtp.Send(mail);
+            return RedirectToAction("index", "home");
+        }
+
+
+
+
+        public async Task<IActionResult> ResetPassword(string email, string token)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return BadRequest();
+            AccountVM model = new AccountVM
+            {
+                AppUser = user,
+                Token = token
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(AccountVM account)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(account.AppUser.Email);
+            AccountVM model = new AccountVM
+            {
+                AppUser = user,
+                Token = account.Token
+            };
+            if (!ModelState.IsValid) return View(model);
+            IdentityResult result = await _userManager.ResetPasswordAsync(user, account.Token, account.Password);
+            if (!result.Succeeded)
+            {
+                foreach (IdentityError error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(model);
+
+            }
+            await _signInManager.SignInAsync(user, true);
+            return RedirectToAction("Index", "Home");
+        }
+
+
     }
 }

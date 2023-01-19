@@ -23,7 +23,7 @@ namespace Boake_BackEnd.Controllers
             ViewBag.Types = _context.ProductTypes.Include(a=>a.BookTypes).ThenInclude(a=>a.Book).Where(a => !a.IsDeleted).ToList();
             ViewBag.Authors = _context.Authors.Include(a=>a.AuthorBooks).ThenInclude(a=>a.Book).Where(a => !a.IsDeleted).ToList();
             List<Book> model = _context.Books.Include(a => a.AuthorBooks).ThenInclude(a => a.Author).Include(a => a.BookTypes).ThenInclude(a => a.ProductType).Where(a => !a.IsDeleted && a.IsSale).Skip((page - 1) * 3).Take(3).ToList(); 
-            
+            ViewBag.Count=_context.Books.Where(a => !a.IsDeleted && a.IsSale).ToList().Count();
             ViewBag.id = sortId;
 
             switch (sortId)
@@ -54,9 +54,9 @@ namespace Boake_BackEnd.Controllers
             List<Book> products = _context.Books.Where(p =>!p.IsDeleted && p.IsSale && p.Name.ToLower().Contains(search.ToLower())).ToList();
             return PartialView("_SearchPartial", products);
         }
-        public IActionResult FromTo(int from)
+        public IActionResult FromTo(int from,int to)
         {
-            List<Book> books = _context.Books.Where(p => !p.IsDeleted && p.IsSale && p.Price>=from).ToList();
+            List<Book> books = _context.Books.Where(p => !p.IsDeleted && p.IsSale && p.Price>=from &&p.Price<=to).ToList();
             return  View(  books);
         }
 

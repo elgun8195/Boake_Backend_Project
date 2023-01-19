@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Boake_BackEnd.Services;
 
 namespace Boake_BackEnd
 {
@@ -30,6 +31,7 @@ namespace Boake_BackEnd
             {
                 option.UseSqlServer(connectionString);
             });
+            services.AddScoped<LayoutService>();
 
             services.AddSession(opt =>
             {

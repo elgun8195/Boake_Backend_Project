@@ -41,10 +41,11 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-white">
+                                    @Model.BasketItems.Count()
                                     @foreach (var item in Model.BasketItems)
                                     {
                                         <span style="display:none">@(totalprice += item.Count * item.Book.Price)</span>
-
+                                        
                                         <tr>
                                             <td class="pro-thumbnail">
                                                 <a href="/shop/detail/@item.Book.Id">
@@ -73,7 +74,7 @@
                                             <td class="pro-subtotal"><span>$</span><span class=" money-t" data-id="@item.Book.Id">@((item.Book.Price * item.Count))</span></td>
                                             <td class="product-remove">
 
-                                                <a href="/basket/remove/@item.Book.Id" class="text-decoration-none text-white hover2 t-5 ps-4">
+                                                <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Book.Id" class="text-decoration-none delete text-white hover2 t-5 ps-4">
                                                     <i class="fa-regular fa-circle-xmark"></i>
                                                 </a>
                                             </td>
@@ -139,6 +140,7 @@
 </div>
 <!--====== Cart-Area End ======-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     // Input count
     var myInp = document.querySelectorAll(".inp-value");
@@ -232,3 +234,33 @@
 
 
 </script>
+    <script>
+        $(".delete").click(function (e) {
+            e.preventDefault()
+            console.log($(this).attr("href"))
+            Swal.fire({
+                title: 'Əminsiniz?',
+                text: "Bunun geri dönüşü yoxdur!",
+                icon: 'Xəbərdarlıq',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Bəli sil!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var link = $(this).attr("href");
+                    fetch(link).then(response => response.json()).then(data => {
+                        if (data.status == 200) {
+                            location.reload(true)
+                        } else {
+                            Swal.fire(
+                                'Tapılmadı!',
+                                'Fayl silinmiş ola bilər.',
+                                'Uğursuz cəhd'
+                            )
+                        }
+                    });
+                }
+            })
+        })
+    </script>

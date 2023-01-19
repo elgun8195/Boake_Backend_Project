@@ -16,7 +16,7 @@ namespace Boake_BackEnd.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-
+        public bool? Status { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime Date { get; set; } 
         public string AppUserId { get; set; }

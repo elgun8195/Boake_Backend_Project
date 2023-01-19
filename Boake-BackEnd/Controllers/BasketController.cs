@@ -83,6 +83,43 @@ namespace Boake_BackEnd.Controllers
 
             return RedirectToAction("login", "account");
         }
+        public async Task<IActionResult> Add(int id,int count   )
+        {
+            Book book = _context.Books.FirstOrDefault(f => f.Id == id);
+
+
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (user == null)
+                {
+                    return RedirectToAction("login", "account");
+                }
+                BasketItem basketItem = _context.BasketItems.FirstOrDefault(b => b.BookId == book.Id && b.AppUserId == user.Id);
+                if (basketItem == null)
+                {
+                    basketItem = new BasketItem
+                    {
+                        AppUserId = user.Id,
+                        BookId = book.Id,
+                        Count = count
+                    };
+                    _context.BasketItems.Add(basketItem);
+                }
+                else
+                {
+                    basketItem.Count+=count;
+                }
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+
+                //return View("_basketPartial");
+            }
+
+
+
+            return RedirectToAction("login", "account");
+        }
 
 
         public async Task<IActionResult> Plus(int Id)
@@ -185,10 +222,10 @@ namespace Boake_BackEnd.Controllers
             _context.SaveChanges();
 
 
-            return RedirectToAction(nameof(Index));
+            return Json(new { status = 200 });
         }
 
-        public async Task<IActionResult> RemoveAll(int Id)
+        public async Task<IActionResult> RemoveAll()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -223,7 +260,6 @@ namespace Boake_BackEnd.Controllers
 
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Checkout(OrderVM orderVM)

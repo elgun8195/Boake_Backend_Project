@@ -165,3 +165,7 @@ C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Detail.cshtml.g.cs
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Basket\Index.cshtml.g.cs
 C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Basket\Checkout.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_basketPartial.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+C:\Users\hp\Desktop\Boake-BackEnd\Boake-BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_basketPartialMobile.cshtml.g.cs

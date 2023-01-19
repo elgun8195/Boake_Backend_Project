@@ -158,45 +158,6 @@
                             }
                         </div>
                     </div>
-                    <div class="pagination pt-5 ">
-                        <ul class="list-unstyled d-flex ">
-                            <li class=" d-inline-block">
-                                <a asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)" style="pointer-events:@(ViewBag.Currentpage == 1 ? "none" : "");" class=" hover3 t-5 br-100 pagi text-decoration-none bg-white">
-                                    <i class="fa-solid fa-angle-left "></i>
-                                </a>
-                            </li>
-                            @for (int i = 1; i < ViewBag.TotalPage; i++)
-                            {
-                                @*<li class=" d-inline-block">
-                            <a style="pointer-events:@(ViewBag.CurrentPage == i ? "none" : "");" asp-controller="shop" asp-action="index" asp-route-page="@i" class="ms-3 hover3 t-5 br-100 pagi pagi-active text-decoration-none bg-white">
-                            <span>@i</span>
-                            </a>
-                            </li>*@
-                                <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events: @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@i">@i</a></li>
-                            }
-                            <li class=" d-inline-block">
-                                <a asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)" class=" hover3 ms-3 t-5 br-100 pagi text-decoration-none bg-white">
-                                    <i class="fa-solid fa-angle-right "></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="pagination pt-5 ">
-                        <ul class="list-unstyled d-flex ">
-                            <li class="page-item @(ViewBag.Currentpage == 1 ? "disabled" : "")">
-                                <a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)">Previous</a>
-                            </li>
-
-                            @for (int i = 1; i <= ViewBag.TotalPage; i++)
-                            {
-                                <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events:         @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@i">@i</a></li>
-                            }
-
-                            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPage ? "disabled" : "")">
-                                <a class="page-link" asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)">Next</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="col-lg-3">
@@ -343,9 +304,48 @@
         </div>
     </div>
 </div>
-<!--====== Shop-Area End ======-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(document).on("click", "#fbtn", function (e) {
+        var to = $("#to-input");
+        var from = $("#from-input");
+        var base = window.location.origin;
+        console.log(to.val())
+        var url = `${base}/shop/fromto/${$(from).val()}?to=${$(to).val()} `
+        window.location.replace(url)
 
+    })
+    $(".author-tab a").click(function (e) {
+        e.preventDefault();
+
+        var id = $(this).attr("href")
+
+        var items = document.querySelectorAll(".item-m")
+        items.forEach(item => {
+            item.style.display = "none"
+            var a = item.getAttribute("data-id")
+
+            if (a.includes(id)) {
+                item.style.display = "block"
+            }
+        })
+    });
+    $(".type-tab a").click(function (e) {
+        e.preventDefault();
+
+        var id = $(this).attr("href")
+
+        var items = document.querySelectorAll(".item-m")
+        items.forEach(item => {
+            item.style.display = "none"
+            var a = item.getAttribute("data-type")
+
+            if (a.includes(id)) {
+                item.style.display = "block"
+            }
+        })
+    });
+</script>
 <script>
     var option = document.querySelectorAll("#select option")
     var id = document.getElementById("getvalue").innerHTML
@@ -357,7 +357,7 @@
     }
     $(document).ready(function () {
 
-        $(document).on("click", "#fbtn", function (e) {
+        $(document).on("change", "#select", function (e) {
 
             var base = window.location.origin;
             var url = `${base}/shop?sortId=${$(this).val()}`
@@ -367,26 +367,10 @@
 
         //$(document).on("click", "#fbtn", function () {
         //    let from = $("#from-input").val().trim();
-        //    let to = $("#to-input").val().trim();
         //    var base = window.location.origin;
-        //    var url = `${base}shop/fromto?from=${$from}&&to=${$to}`
+        //    var url = `${base}/shop?sortId=${$(this).val()}`
         //    window.location.replace(url)
-        //    //$.ajax({
-        //    //method: "get",
-        //    //    url: `shop/fromto?from=${$from}&&to=${$to}`,
-        //    //success: function (res) {
-        //    //    console.log(res)
-        //    //}
         //})
     })
 
-</script>
-@*<script>
-    const btn=document.getElementById("fbtn");
-    const frominp=document.getElementById("from-input");
-    const toinp=document.getElementById("to-input");
-    btn.addEventListener("click",function(e){
-        e.preventDefault();
-        console.log(frominp.value)
-    })
-</script>*@
+</script> 

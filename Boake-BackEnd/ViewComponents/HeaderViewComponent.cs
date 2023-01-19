@@ -16,8 +16,8 @@ namespace Boake_BackEnd.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            Bio bio = _context.Bio.FirstOrDefault();
-            return View(await Task.FromResult(bio));
+            ViewBag.Bio = _context.Bio.FirstOrDefault();
+            return View(await Task.FromResult(ViewBag.Bio));
         }
     }
 }

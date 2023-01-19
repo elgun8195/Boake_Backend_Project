@@ -36,7 +36,7 @@
                             </select>
                         </div>
                         <div class="pt-4 pt-sm-0">
-                            <span class="text-white">Showing 7 of 26 result</span>
+                            <span class="text-white">Showing 3 of @ViewBag.Count result</span>
                         </div>
 
                         <div class="pt-4 pt-sm-0">
@@ -199,7 +199,7 @@
                     <button class="accordion text-white bg-transparent border-bottom work-sans fw-semibold">Price</button>
                     <div class="panel text-white">
                         <div class="sidebar-body widget-collapse-hide my-4">
-                            <form method="post">
+                          
                                 <div class="filter-value-counter"><span class="filter-value-selected"> selected</span></div>
                                 <div class="checkbox-container categories-list sidebar-price-filter">
                                     <div class="filter-range-from work-sans">
@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" id="fbtn" class="mt-4 border-0 bg-grey w-100 py-2 hover3 t-5" style="outline: none;">Filter</button>
-                            </form>
+                           
                         </div>
                     </div>
                 </div>
@@ -273,6 +273,15 @@
 <!--====== Shop-Area End ======-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
+    $(document).on("click", "#fbtn", function (e) {
+        var to = $("#to-input");
+        var from = $("#from-input");
+        var base = window.location.origin;
+        console.log(to.val())
+        var url = `${base}/shop/fromto/${$(from).val()}?to=${$(to).val()} `
+        window.location.replace(url)
+
+    })
     $(".author-tab a").click(function (e) {
         e.preventDefault();
 

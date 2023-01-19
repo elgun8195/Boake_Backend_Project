@@ -3,6 +3,7 @@ using Boake_BackEnd.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Boake_BackEnd.Controllers
 {
@@ -14,13 +15,13 @@ namespace Boake_BackEnd.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             HomeVM homeVM = new HomeVM();
-            homeVM.Books = _context.Books.Where(s => !s.IsDeleted&&s.IsSale).ToList();
+            homeVM.Books =await _context.Books.Where(s => !s.IsDeleted&& s.IsSale).ToListAsync();
 
-            homeVM.Blogs = _context.Blog.Include(s=>s.Comments).Where(s => !s.IsDeleted).ToList();
-            homeVM.Sliders = _context.Sliders.Where(s=>!s.IsDeleted).ToList(); 
+            homeVM.Blogs =await _context.Blog.Include(s=>s.Comments).Where(s => !s.IsDeleted).ToListAsync();
+            homeVM.Sliders =await _context.Sliders.Where(s=>!s.IsDeleted).ToListAsync(); 
             return View(homeVM);
         }
     }
