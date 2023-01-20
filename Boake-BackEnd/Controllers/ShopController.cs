@@ -57,6 +57,9 @@ namespace Boake_BackEnd.Controllers
         public IActionResult FromTo(int from,int to)
         {
             List<Book> books = _context.Books.Where(p => !p.IsDeleted && p.IsSale && p.Price>=from &&p.Price<=to).ToList();
+            ViewBag.Types = _context.ProductTypes.Include(a => a.BookTypes).ThenInclude(a => a.Book).Where(p => !p.IsDeleted).ToList();
+            ViewBag.Authors = _context.Authors.Include(a => a.AuthorBooks).ThenInclude(a => a.Book).Where(p => !p.IsDeleted).ToList();
+            ViewBag.Count = _context.Books.Where(a => !a.IsDeleted && a.IsSale).ToList().Count();
             return  View(  books);
         }
 

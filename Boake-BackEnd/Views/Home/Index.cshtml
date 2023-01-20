@@ -219,7 +219,7 @@
                     <div class="pt-4  content " id="featured">
                         <div class="container position-relative olo2">
                             <div class="row featured-tab-slider">
-                                @foreach (var book in Model.Books)
+                                @foreach (var book in Model.Books.Where(b=>b.SaleCount>=5))
                                 {
                                     <div class="">
                                         <div class="input-border position-relative me-4">
@@ -317,7 +317,7 @@
                     <div class="content active" id="upsell">
                         <div class="container position-relative olo4">
                             <div class="row upsell-tab-slider">
-                                @foreach (var book in Model.Books)
+                                @foreach (var book in Model.Books.Where(b => b.SaleCount >=10))
                                 {
                                     <div class="">
                                         <div class="input-border position-relative me-4">

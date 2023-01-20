@@ -135,11 +135,8 @@
                                             <li>
                                                 <a asp-controller="account" asp-action="logout" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Log Out</a>
                                             </li>
-                                        }
-                                        else
-                                        {
-
-                                            <li class=" py-3 ">
+                                        }else{
+                                            <li class="py-3">
                                                 <a asp-controller="account" asp-action="login" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Login</a>
                                             </li>
                                         }
@@ -249,8 +246,9 @@
                                                 <ul class="list-unstyled text-start">
                                                     @if (User.Identity.IsAuthenticated)
                                                     {
-
                                                         <li class="pb-3"><a asp-controller="account" asp-action="index" class="text-decoration-none text-white hover2 t-5">Account</a></li>
+                                                        <li class="pb-3"><a asp-controller="account" asp-action="logout" class="text-decoration-none text-white hover2 t-5">Log Out</a></li>
+
                                                     }
                                                     else
                                                     {
@@ -337,14 +335,17 @@
                                     <ul class="ps-0">
                                         @if (User.Identity.IsAuthenticated)
                                         {
-
                                             <li>
                                                 <a asp-controller="account" asp-action="index" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">MyAccount</a>
                                             </li>
-                                        }
+                                            <li>
+                                                <a asp-controller="account" asp-action="logout" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Log Out</a>
+                                            </li>
+                                            
+                                        }else{
                                         <li class=" py-3 ">
                                             <a asp-controller="account" asp-action="login" class="text-white text-decoration-none  hover2 t-5" style="cursor: pointer">Login</a>
-                                        </li>
+                                        </li>}
                                     </ul>
                                 </li>
                             </ul>

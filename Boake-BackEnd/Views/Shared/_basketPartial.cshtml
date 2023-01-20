@@ -91,7 +91,7 @@ else{
                                                 <img src="~/assets/img/feature-collection/@item.Book.ImageUrl" class="w-100" alt="">
                                             </a>
                                             <div class="item-close">
-                                                <a href="">
+                                                <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Book.Id" class="removeb">
                                                     <i class="fa-regular fa-circle-xmark text-white"></i>
                                                 </a>
                                             </div>
@@ -133,3 +133,35 @@ else{
     </div>
     
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(".removeb").click(function (e) {
+        e.preventDefault()
+        console.log($(this).attr("href"))
+        Swal.fire({
+            title: 'Əminsiniz?',
+            text: "Bunun geri dönüşü yoxdur!",
+            icon: 'Xəbərdarlıq',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli sil!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var link = $(this).attr("href");
+                fetch(link).then(response => response.json()).then(data => {
+                    if (data.status == 200) {
+                        location.reload(true)
+                    } else {
+                        Swal.fire(
+                            'Tapılmadı!',
+                            'Fayl silinmiş ola bilər.',
+                            'Uğursuz cəhd'
+                        )
+                    }
+                });
+            }
+        })
+    })
+</script>

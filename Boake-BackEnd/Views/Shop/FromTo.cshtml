@@ -37,7 +37,7 @@
                             </select>
                         </div>
                         <div class="pt-4 pt-sm-0">
-                            <span class="text-white">Showing 7 of 26 result</span>
+                            <span class="text-white">Showing  @Model.Count() of @ViewBag.Count result</span>
                         </div>
 
                         <div class="pt-4 pt-sm-0">
@@ -54,10 +54,9 @@
                     <div class="many">
                         <div class="row">
                             @foreach (var item in Model)
-
                             {
 
-                                <div class="col-lg-4 col-6 pt-4">
+                                <div class="col-lg-4 item-m col-6 pt-4">
                                     <div class="input-border me-4 position-relative ">
                                         <a href="/shop/detail/@item.Id">
                                             <img src="~/assets/img/feature-collection/@item.ImageUrl" class="w-100" alt="">
@@ -195,51 +194,18 @@
                             </div>
                             <div class="checkbox-container categories-list  ">
                                 <ul class="checkbox-container categories-list list-unstyled ">
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.product_type" value="Type 1" id="Filter-product-type-1"
-                                                   class="custom-control-input">
-                                            <label for="Filter-product-type-1" class="custom-control-label">
-                                                Type 1 <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.product_type" value="Type 2" id="Filter-product-type-2"
-                                                   class="custom-control-input">
-                                            <label for="Filter-product-type-2" class="custom-control-label">
-                                                Type 2 <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.product_type" value="Type 3" id="Filter-product-type-3"
-                                                   class="custom-control-input">
-                                            <label for="Filter-product-type-3" class="custom-control-label">
-                                                Type 3 <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.product_type" value="Type 4" id="Filter-product-type-4"
-                                                   class="custom-control-input">
-                                            <label for="Filter-product-type-4" class="custom-control-label">
-                                                Type 4 <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.product_type" value="Type 5" id="Filter-product-type-5"
-                                                   class="custom-control-input">
-                                            <label for="Filter-product-type-5" class="custom-control-label">
-                                                Type 5 <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
+                                    @foreach (var item in ViewBag.Types)
+                                    {
+
+                                        <li>
+                                            <div class="custom-control custom-checkbox ">
+
+                                                <label for="Filter-product-type-1" class="custom-control-label type-tab">
+                                                    <a class="custom-control-label" href="@item.Name">@item.Name</a> <span class="count_value"> (@item.BookTypes.Count)</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -255,46 +221,19 @@
                             </div>
                             <div class="checkbox-container categories-list  ">
                                 <ul class="checkbox-container categories-list list-unstyled ">
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 1" id="Filter-brand-vendor-1"
-                                                   class="custom-control-input">
-                                            <label for="Filter-brand-vendor-1" class="custom-control-label">
-                                                Vendor 1
-                                                <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 2" id="Filter-brand-vendor-2"
-                                                   class="custom-control-input">
-                                            <label for="Filter-brand-vendor-2" class="custom-control-label">
-                                                Vendor 2
-                                                <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 3" id="Filter-brand-vendor-3"
-                                                   class="custom-control-input">
-                                            <label for="Filter-brand-vendor-3" class="custom-control-label">
-                                                Vendor 3
-                                                <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" name="filter.p.brand_vendor" value="Vendor 4" id="Filter-brand-vendor-4"
-                                                   class="custom-control-input">
-                                            <label for="Filter-brand-vendor-4" class="custom-control-label">
-                                                Vendor 4
-                                                <span class="count_value"> (3)</span>
-                                            </label>
-                                        </div>
-                                    </li>
+                                    @foreach (var item in ViewBag.Authors)
+                                    {
+                                        <li>
+                                            <div class="custom-control author-tab custom-checkbox ">
+                                                <a href="@item.Name" class="custom-control-label" style="text-decoration:none;">
+                                                    <label for="Filter-brand-vendor-1" class="custom-control-label">
+                                                        @item.Name
+                                                        <span class="count_value"> (@item.AuthorBooks.Count)</span>
+                                                    </label>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                         </div>

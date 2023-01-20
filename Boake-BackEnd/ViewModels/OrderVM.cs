@@ -31,7 +31,9 @@ namespace Boake_BackEnd.ViewModels
         public string State { get; set; }
         [Required]
         [StringLength(maximumLength: 30)]
-        public string ZipCode { get; set; } 
+        public string ZipCode { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
+
         public List<BasketItem> BasketItems { get; set; }
     }
 }

@@ -39,10 +39,17 @@ namespace Boake_BackEnd.Controllers
             _env = env;
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Order> orders = _context.Order.ToList();
-            return View(orders); 
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (user == null) return BadRequest();
+                List<Order> orders = _context.Order.Include(o=>o.OrderItems).ThenInclude(o=>o.Book).Where(o => o.AppUserId == user.Id).ToList();
+                return View(orders);
+
+            }
+            return View(); 
         }
         public IActionResult Register()
         {
@@ -153,8 +160,6 @@ namespace Boake_BackEnd.Controllers
             }
         }
 
-
-
         public async Task<IActionResult> VerifyEmail(string email, string token)
         {
             AppUser user = await _userManager.FindByEmailAsync(email);
@@ -185,7 +190,7 @@ namespace Boake_BackEnd.Controllers
             mail.To.Add(new MailAddress(user.Email));
 
             mail.Subject = "Reset Password";
-            mail.Body = $"<a href='{link}'>Please click here to reset your password</a>";
+            mail.Body = $"<a href='{link}'>Click and reset your password</a>";
             mail.IsBodyHtml = true;
 
             SmtpClient smtp = new SmtpClient();
@@ -198,13 +203,10 @@ namespace Boake_BackEnd.Controllers
             return RedirectToAction("index", "home");
         }
 
-
-
-
         public async Task<IActionResult> ResetPassword(string email, string token)
         {
             AppUser user = await _userManager.FindByEmailAsync(email);
-            if (user == null) return BadRequest();
+            if (user == null) return RedirectToAction("login","account");
             AccountVM model = new AccountVM
             {
                 AppUser = user,
@@ -218,6 +220,8 @@ namespace Boake_BackEnd.Controllers
         public async Task<IActionResult> ResetPassword(AccountVM account)
         {
             AppUser user = await _userManager.FindByEmailAsync(account.AppUser.Email);
+            if (user == null) return RedirectToAction("login", "account");
+
             AccountVM model = new AccountVM
             {
                 AppUser = user,
